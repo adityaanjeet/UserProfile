@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -20,35 +26,47 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:layout_marginTop="45dp">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher_background"
-                android:id="@+id/imgView"/>
+
+
+    <com.github.abdularis.civ.CircleImageView
+        android:layout_width="100dp"
+        android:layout_height="170dp"
+        android:id="@+id/imgView"
+        android:src="@drawable/icon_aadharnumber"
+        app:highlightColor="#80fb1743"
+        app:strokeColor="@color/colorAccent"
+        app:strokeWidth="2px" />
+
 
     <Button
         android:layout_width="35dp"
         android:id="@+id/buttonLoadPicture"
         android:layout_height="35dp"
         android:layout_alignBottom="@+id/imgView"
-        android:layout_alignRight="@+id/imgView"/>
+        android:layout_alignRight="@+id/imgView"
+        android:layout_alignEnd="@+id/imgView" />
 </RelativeLayout>
-            <TextView
+
+            <EditText
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:text="Name"
+                android:text="@string/name"
                 android:textColor="#fff"
                 android:textSize="21sp"
+                android:enabled="false"
                 android:textStyle="bold" />
 
-            <TextView
+            <EditText
+                android:enabled="false"
+                android:id="@+id/email_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:text="Email_id"
+                android:text="@string/email"
                 android:textColor="#fff"
                 android:textSize="21sp"
                 android:textStyle="bold" />
@@ -60,44 +78,29 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="10dp"
-            android:id="@+id/linear_layout2"
-            android:layout_alignBottom="@+id/linear_layout1">
+            android:id="@+id/linear_layout2">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
-                android:layout_margin="5dp">
-                    <ImageView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:src="@drawable/mobile_number" />
+                android:layout_margin="5dp"
+                android:paddingStart="20dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:paddingLeft="20dp"
-                        android:text="+91987654321"
-                        android:textStyle="bold" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="20dp"
-                android:layout_margin="5dp">
 
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/aadhar_number" />
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/icon_mobile" />
 
-                <TextView
+                <EditText
+                    android:enabled="false"
+                    android:id="@+id/mobile_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:text="3241 4145 5474"
+                    android:paddingLeft="10dp"
+                    android:text="@string/mobile_number"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
             <LinearLayout
@@ -105,20 +108,51 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="20dp"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                android:paddingStart="20dp">
 
-                    <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@drawable/address" />
 
-                    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="20dp"
-            android:text="51-Bakers Street London, England"
-            android:textStyle="bold" />
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/icon_aadharnumber" />
+
+                <EditText
+                    android:enabled="false"
+                    android:id="@+id/aadhar_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="@string/aadhar_number"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:layout_margin="5dp"
+                android:paddingStart="20dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/icon_address" />
+
+                <EditText
+                    android:enabled="false"
+                    android:id="@+id/address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="@string/address"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
              </LinearLayout>
 
             <LinearLayout
@@ -126,16 +160,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="20dp"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                android:paddingStart="20dp">
 
                 <Button
-                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/logout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#fff"
-                    android:background="@drawable/profile_button"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="15dp"
                     android:layout_weight="1"
-                    android:text="LOGOUT"/>
+                    android:background="@drawable/profile_button"
+                    android:text="@string/logout"
+                    android:textColor="#fff" />
                 <Button
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
@@ -143,9 +180,12 @@
                     android:background="@drawable/profile_button"
                     android:textColor="#fff"
                     android:layout_weight="1"
-                    android:text="Edit Profile"/>
+                    android:layout_margin="15dp"
+                    android:text="@string/edit_profile"
+                    android:id="@+id/edit_profile"/>
             </LinearLayout>
         </LinearLayout>
 
 
 </LinearLayout>
+</ScrollView>
